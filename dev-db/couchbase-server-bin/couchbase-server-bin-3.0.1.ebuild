@@ -1,24 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header $
+# $Id$
 
 EAPI=5
 inherit eutils user
 
-DESCRIPTION="Distributed key-value database management system"
-HOMEPAGE="http://www.couchbase.com"
+DESCRIPTION="Distributed key-value database management system, community edition"
+HOMEPAGE="http://www.couchbase.com/"
 SRC_URI="http://packages.couchbase.com/releases/${PV}/couchbase-server-community_${PV}-debian7_amd64.deb"
 
-LICENSE="COUCHBASE INC. COMMUNITY EDITION"
+LICENSE="Couchbase-Inc-Community-Edition" #http://www.couchbase.com/community
 SLOT="0"
 KEYWORDS="amd64"
 IUSE=""
 
-#RDEPEND=">=sys-libs/ncurses-5[tinfo]
-#		>=dev-libs/libevent-1.4.13
-#		>=dev-libs/cyrus-sasl-2
-#		~media-video/rtmpdump-2.3
-#		virtual/jre"
 RDEPEND="sys-libs/ncurses:5/5[tinfo]"
 DEPEND="${RDEPEND}"
 
@@ -33,7 +28,7 @@ pkg_setup() {
 
 src_unpack() {
 	ar x "${DISTDIR}"/${A}
-	cd ${WORKDIR}
+	cd "${WORKDIR}"
 	tar xzf data.tar.gz
 }
 
