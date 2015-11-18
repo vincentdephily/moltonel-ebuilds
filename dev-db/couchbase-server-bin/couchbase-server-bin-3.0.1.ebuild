@@ -9,7 +9,6 @@ DESCRIPTION="Distributed key-value database management system"
 HOMEPAGE="http://www.couchbase.com"
 SRC_URI="http://packages.couchbase.com/releases/${PV}/couchbase-server-community_${PV}-debian7_amd64.deb"
 
-
 LICENSE="COUCHBASE INC. COMMUNITY EDITION"
 SLOT="0"
 KEYWORDS="amd64"
@@ -20,7 +19,7 @@ IUSE=""
 #		>=dev-libs/cyrus-sasl-2
 #		~media-video/rtmpdump-2.3
 #		virtual/jre"
-RDEPEND="sys-libs/ncurses[tinfo]"
+RDEPEND="sys-libs/ncurses:5/5[tinfo]"
 DEPEND="${RDEPEND}"
 
 export CONFIG_PROTECT="${CONFIG_PROTECT} /opt/${PN}/var/lib/${PN}/"

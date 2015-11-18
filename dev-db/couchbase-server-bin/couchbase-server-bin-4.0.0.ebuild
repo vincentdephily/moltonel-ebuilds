@@ -15,8 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="sys-libs/ncurses[tinfo]
-         >=dev-db/sqlite-3.5.9"
+RDEPEND="sys-libs/ncurses:5/5[tinfo]
+		 >=dev-db/sqlite-3.5.9"
 DEPEND="${RDEPEND}"
 
 export CONFIG_PROTECT="${CONFIG_PROTECT} /opt/${PN}/var/lib/${PN}/"
