@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -35,18 +35,26 @@ src_unpack() {
 
 src_install() {
 	# basic cleanup
-	find opt/couchbase/var/lib/couchbase/ -type f -delete || die
+#	find opt/couchbase/var/lib/couchbase/ -type f -delete || die
 
 	# bin install / copy
 	dodir /opt/couchbase
 	cp -a opt/couchbase/* "${D}"/opt/couchbase/
-
-	dodir /opt/couchbase/var/lib/couchbase/{data,mnesia,tmp}
-
+#	dodir /opt/couchbase/var/lib/couchbase/{data,mnesia,tmp}
 	fowners -R couchbase:couchbase /opt/couchbase/
 
-	dosym /opt/couchbase/etc/logrotate.d/couchdb /etc/logrotate.d/couchbase
+	# Install upstream'd init script but make sure it doesn't delete /dev/null
+	sed -i '/start-stop-daemon/s:--pidfile */dev/null::' "${D}opt/couchbase/etc/couchbase_init.d"
+	dosym "${D}opt/couchbase/etc/couchbase_init.d" /etc/init.d/couchbase
 
+	# Logs and logrotate
+	dosym /opt/couchbase/etc/logrotate.d/couchdb /etc/logrotate.d/couchbase
+	dosym /opt/couchbase/var/lib/couchbase/logs /var/log/couchbase
+
+	# Raise open files limit
 	insinto /etc/security/limits.d/
 	doins "${FILESDIR}"/90-couchbase.conf
+
+	ewarn "The version of erlang bundled with this precompiled package does not support ipv6 addresses in /etc/resolv.conf."
+	ewarn "This'll result in warnings at startup/shutdown but should otherwise be harmless."
 }
