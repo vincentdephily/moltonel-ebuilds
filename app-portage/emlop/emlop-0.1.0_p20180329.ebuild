@@ -5,19 +5,19 @@ EAPI=6
 
 CRATES="
 aho-corasick-0.6.4
-ansi_term-0.10.2
+ansi_term-0.11.0
 assert_cli-0.5.4
-atty-0.2.6
+atty-0.2.8
 backtrace-0.3.5
 backtrace-sys-0.1.16
 bitflags-0.9.1
 bitflags-1.0.1
 bytecount-0.2.0
 cargo_metadata-0.3.3
-cc-1.0.4
+cc-1.0.5
 cfg-if-0.1.2
 chrono-0.4.0
-clap-2.30.0
+clap-2.31.1
 colored-1.6.0
 difference-1.0.0
 dtoa-0.4.2
@@ -33,7 +33,7 @@ itoa-0.3.4
 kernel32-sys-0.2.2
 lazy_static-0.2.11
 lazy_static-1.0.0
-libc-0.2.37
+libc-0.2.39
 memchr-2.0.1
 num-0.1.42
 num-integer-0.1.36
@@ -62,7 +62,7 @@ strsim-0.7.0
 syn-0.11.11
 synom-0.11.3
 sysconf-0.3.1
-tabwriter-1.0.3
+tabwriter-1.0.4
 tempdir-0.3.6
 termion-1.5.1
 textwrap-0.9.0
@@ -87,7 +87,7 @@ inherit cargo
 
 DESCRIPTION="A fast, accurate, ergonomic emerge.log parser"
 HOMEPAGE="https://github.com/vincentdephily/emlop"
-COMMIT="fab04e8076e10f6b301aca6cd1b9a24a76812cc5"
+COMMIT="bed301cd7e2e67cb5b398e376f95d9c0d597d34c"
 SRC_URI="https://github.com/vincentdephily/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
 		 $(cargo_crate_uris ${CRATES})"
 
@@ -101,10 +101,10 @@ DEPEND=">=virtual/rust-1.23
 RDEPEND=""
 
 src_unpack() {
-	cargo_src_unpack
-	cd "${WORKDIR}"
-	rmdir "${PF}"
-	mv "${PN}-${COMMIT}" "${PF}"
+	   cargo_src_unpack
+	   cd "${WORKDIR}"
+	   rmdir "${PF}"
+	   mv "${PN}-${COMMIT}" "${PF}"
 }
 
 src_test() {
@@ -113,6 +113,5 @@ src_test() {
 
 src_install() {
 	cargo_src_install
-
 	dodoc README.md COMPARISON.md
 }
