@@ -1,4 +1,4 @@
-# Copyright 2017-2018 Gentoo Foundation
+# Copyright 2017-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -109,7 +109,7 @@ IUSE=""
 KEYWORDS="amd64 x86"
 
 DEPEND=">=virtual/rust-1.25
-	 dev-util/cargo"
+	 virtual/cargo"
 RDEPEND=""
 
 src_test() {
