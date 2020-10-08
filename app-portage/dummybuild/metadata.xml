@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>moltonel@gmail.com</email>
+    <description>Primary maintainer</description>
+  </maintainer>
+  <longdescription>
+    This is a dummy ebuild that takes a long time to install nothing.
+
+    The purpose is to help portage tool development, by leting portage run for a long time without
+    wasting CPU, IO, or memory. The $SLOT is abused to select how long it takes to install.
+  </longdescription>
+  <use>
+  </use>
+</pkgmetadata>
