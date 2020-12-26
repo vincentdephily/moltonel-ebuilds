@@ -72,7 +72,7 @@ winapi-util-0.1.5
 winapi-x86_64-pc-windows-gnu-0.4.0
 "
 
-inherit cargo
+inherit cargo bash-completion-r1
 
 DESCRIPTION="A fast, accurate, ergonomic emerge.log parser"
 HOMEPAGE="https://github.com/vincentdephily/emlop"
@@ -83,7 +83,7 @@ RESTRICT="mirror"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
+IUSE="bash-completion zsh-completion fish-completion"
 
 DEPEND=">=virtual/rust-1.41.1"
 RDEPEND=""
@@ -91,4 +91,18 @@ RDEPEND=""
 src_install() {
 	cargo_src_install
 	dodoc README.md CHANGELOG.md
+	if use bash-completion; then
+		emlop complete bash > emlop
+		dobashcomp emlop
+	fi
+	if use zsh-completion; then
+		emlop complete zsh > _emlop
+		insinto /usr/share/zsh/site-functions
+		doins _emlop
+	fi
+	if use fish-completion; then
+		emlop complete fish > emlop.fish
+		insinto /usr/share/fish/vendor_completions.d
+		doins emlop.fish
+	fi
 }
