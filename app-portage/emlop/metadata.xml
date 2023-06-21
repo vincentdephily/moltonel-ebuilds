@@ -5,9 +5,11 @@
    <email>moltonel@gmail.com</email>
    <description>Upstream author</description>
 </maintainer>
-<use>
-   <flag name="fish-completion">
-      Enable fish completion support.
-   </flag>
-</use>
+<maintainer type="project">
+   <email>proxy-maint@gentoo.org</email>
+   <name>Proxy Maintainers</name>
+</maintainer>
+<upstream>
+  <remote-id type="github">vincentdephily/emlop</remote-id>
+</upstream>
 </pkgmetadata>
