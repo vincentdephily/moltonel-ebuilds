@@ -113,3 +113,8 @@ src_install() {
 	insinto /usr/share/fish/vendor_completions.d
 	doins emlop.fish
 }
+
+# These tests deadlock when run by portage
+src_test() {
+	cargo test -- --skip commands::tests || die
+}
