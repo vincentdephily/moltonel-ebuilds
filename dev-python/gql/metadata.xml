@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>moltonel@gmail.com</email>
+		<name>Vincent de Phily</name>
+	</maintainer>
+	<longdescription>
+	  This is a GraphQL client for Python 3.7+. Plays nicely with graphene, graphql-core, graphql-js and any other GraphQL implementation compatible with the spec.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">graphql-python/gql</remote-id>
+		<remote-id type="pypi">gql</remote-id>
+	</upstream>
+</pkgmetadata>
